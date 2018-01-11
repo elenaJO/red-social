@@ -1,6 +1,6 @@
 $(document).ready(function() {
   setTimeout(function() {
-    window.location.href = '../views/profile.html';
+    window.location.href = '../views/newsfeed.html';
   }, 22000);
 
   // Initialize Firebase
