@@ -1,0 +1,34 @@
+body {
+    background: #ffffff; 
+    overflow: hidden;
+  }
+  
+  /* escalas según % que alcance la imagen */
+  @-webkit-keyframes span {
+    0%{
+      opacity: 0;
+      -webkit-transform: scale(.6);
+              transform: scale(.6);
+    }
+    60% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  /* ubicación / donde debe empezar y terminar*/
+  #preloader span{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    -webkit-animation: span 1.333s linear infinite;
+            animation: span 1.333s linear infinite;
+  }
