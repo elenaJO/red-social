@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../vendors/materialize/css/materialize.min.css">
-  <link rel="stylesheet" href="../css/newsfeed.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
+
 <body>
   <header>
     <nav>
@@ -34,7 +36,7 @@
             <a href="">Pets</a>
           </li>
         </ul>
-        <a href="profile.html" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
           <!-- <div class="green"></div> -->
           <img src="" alt="" id="foto" class="photo-user">
         </a>
@@ -44,28 +46,26 @@
   <main>
     <div class="container">
       <div class="row">
-        <div class="col s12">
-          <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Post you experiences!</label>
+          <div class="col s12">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Post you experiences!</label>
+              </div>
           </div>
-        </div>
       </div>
       <div class="row">
-        <div class="col s12">
-          <form action="#">
-            <div class="file-field file-path-wrapper">
-              <div class="btn">
-                <span>
-                  <i class="material-icons">image</i>
-                </span>
-                <input class="btn" type="file" value="upload" id="fileButton" />
-              </div>
-              <button id="postButton" class="btn waves-effect waves-light right" type="submit" name="action" disabled>Post
-              </button>
-            </div>
-          </form>
-        </div>
+          <div class="col s12">
+              <form action="#">
+                <div class="file-field file-path-wrapper">
+                    <div class="btn">
+                        <span><i class="material-icons">image</i></span>
+                        <input class="btn" type="file" value="upload" id="fileButton"/>
+                    </div>
+                    <button id="postButton" class="btn waves-effect waves-light right" type="submit" name="action" disabled>Post
+                    </button>
+                </div>
+              </form>
+          </div>
       </div>
       <div id="publicaciones">
 
@@ -77,29 +77,19 @@
       </div> -->
     </div>
   </main>
-  <!-- <nav> -->
   <div class="tab-menu-holder">
     <ul>
       <li class="tab-item-btn active">
-        <a style="color:white" href="newsfeed.html">
-          <i class="material-icons">public</i>
-        </a>
-
+        <i class="material-icons">public</i>
       </li>
       <li class="tab-item-btn">
-        <a style="color:white" href="search.html">
-          <i class="material-icons">search</i>
-        </a>
+        <i class="material-icons">search</i>
       </li>
       <li class="tab-item-btn">
-        <a style="color:white" href="notifications.html">
-          <i class="material-icons">notifications</i>
-        </a>
+        <i class="material-icons">notifications</i>
       </li>
       <li class="tab-item-btn">
-        <a style="color:white" href="notifications.html">
-          <i class="material-icons">chat</i>
-        </a>
+        <i class="material-icons">chat</i>
       </li>
     </ul>
   </div>
@@ -109,4 +99,5 @@
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script src="../js/newsfeed.js"></script>
 </body>
+
 </html>
