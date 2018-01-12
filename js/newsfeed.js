@@ -94,6 +94,7 @@ $(document).ready(function() {
     // updates['/Posts/' + postKey] = postData;
     // firebase.database().ref().update(updates);
     $valueTextTarea = $textArea.val('');
+    $postButton2.attr('disabled', true)
   });
 
 });
