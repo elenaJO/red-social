@@ -83,7 +83,16 @@ $(document).ready(function() {
 
     var appenReplace = appen.replace('<span></span>', $textArea.val()).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name);
     $('#publicaciones').append(appenReplace);
-    
+    // var postKey = firebase.database().ref('Posts/').push().key;
+    // var mensaje = $textArea.val();
+    // var updates = {};
+    // var postData = {
+    //   url: mensaje,
+    //   user: localStorage.id,
+    //   name: localStorage.name
+    // };
+    // updates['/Posts/' + postKey] = postData;
+    // firebase.database().ref().update(updates);
     $valueTextTarea = $textArea.val('');
   });
 
