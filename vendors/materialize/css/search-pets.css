@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .green{
+    background: rgb(0, 231, 119) !important;
+  }
+  
+  img{
+    width: 95vw;
+  }
+  
+  header nav{
+    margin-right: 0;
+  }
+  
+  .tab-menu-holder {
+    background: rgb(0, 231, 119);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 10px;
+    z-index: 9999999;
+  }
+  
+  .tab-menu-holder  ul {
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .tab-menu-holder   li {
+    list-style: none;
+    display: inline;
+    padding: 10px 15px;
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+  }
+  
+  #seccion{
+    padding: 4vw;
+  }
+  
+  .pets{
+    font-family: 'Delius', cursive !important;
+  }
+  
+  .pets img{
+    width: 50vw;
+    height: 60vw;
+  }
+  
+  .inline-block{
+    display: inline-block;
+  }
