@@ -35,10 +35,17 @@ $(document).ready(function () {
             '<div style="display:inline-block" class="img-user"><img src="_photo_" class="photo-user"></div>' + '<div class="div-name">_name_</div>' + '<br>' +
             '<div class="align">' +
             '<img src="_pub_" alt="" class="img-pub">' +
+            '<div class="text-left">' +
+            '<p>_mensaje_</p>' +
+            '<hr>' + '<br>' +
+            '<a class="a-icon"><i class="material-icons">favorite</i></span></a>' + 
+            '<a class="a-icon"><i class="material-icons margin-left">question_answer</i></span></a>' +
+            '<a class="a-icon rigth"><i class="material-icons margin-left">more_horiz</i></span></a>' +
+            '</div>' +
             '</div>' +
             '</div>' +
             '</div>' ;
-          var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url);
+          var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url).replace('_mensaje_', currentObject.message);
           $('#publicaciones').prepend(appenReplace);
           console.log(currentObject.user);
         }
@@ -61,12 +68,12 @@ $(document).ready(function () {
     var dbUserFollow = dbRefUsu.child('seguidores');
     if ($(this).hasClass('followed')) {
       $(this).text('Followed');
-      dbUserFollow.transaction(function (curentFollow) {
+      dbUserFollow.transaction(function(curentFollow) {
         return curentFollow + 1;
       });
     } else {
       $(this).text('Follow');
-      dbUserFollow.transaction(function (curentFollow) {
+      dbUserFollow.transaction(function(curentFollow) {
         return curentFollow - 1;
       });
     }
