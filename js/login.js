@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  setTimeout(function() {
-    window.location.href = '../views/newsfeed.html';
-  }, 22000);
+  // setTimeout(function() {
+  //   window.location.href = '../views/newsfeed.html';
+  // }, 22000);
 
   // Initialize Firebase
   var config = {
@@ -30,6 +30,7 @@ $(document).ready(function() {
       localStorage.id = result.user.uid;
       console.log(result.user);
       guardarFirebase(result.user);
+      $(location).attr('href', 'newsfeed.html');
     });
   }
 
