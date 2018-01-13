@@ -52,7 +52,7 @@ $(document).ready(function() {
     var reader = new FileReader();
     reader.onload = function(event) {
       var appenReplace = appen.replace('_pub_', event.target.result).replace('_name_', localStorage.name).replace('_photo_', localStorage.photo);
-      $('#publicaciones').append(appenReplace);
+      $('#publicaciones').prepend(appenReplace);
     };
     reader.readAsDataURL(this.files[0]);
   });
@@ -82,7 +82,7 @@ $(document).ready(function() {
     '<br>';
 
     var appenReplace = appen.replace('<span></span>', $textArea.val()).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name);
-    $('#publicaciones').append(appenReplace);
+    $('#publicaciones').prepend(appenReplace);
     // var postKey = firebase.database().ref('Posts/').push().key;
     // var mensaje = $textArea.val();
     // var updates = {};

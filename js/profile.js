@@ -39,7 +39,7 @@ $(document).ready(function () {
             '</div>' +
             '</div>' ;
           var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url);
-          $('#publicaciones').append(appenReplace);
+          $('#publicaciones').prepend(appenReplace);
           console.log(currentObject.user);
         }
       }
