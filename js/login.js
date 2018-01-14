@@ -16,14 +16,13 @@ $(document).ready(function() {
 
   $('#login').click(function() {
     google();
-    console.log('haha');
   });
 
   function google() {
     // provedor del servicio
     var provider = new firebase.auth.GoogleAuthProvider();
     // levantar la ventana de gmail y trae un result
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
       // guardando la imagen y nombre;
       localStorage.photo = result.user.photoURL;
       localStorage.name = result.user.displayName;

@@ -16,6 +16,10 @@ $(document).ready(function() {
   var $valueTextTarea = $textArea.val();
   var $postButton2 = $('button[type=submit]');
 
+  function hora() {
+
+  }
+
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var token = firebase.auth().currentUser.uid;
@@ -47,20 +51,13 @@ $(document).ready(function() {
             '</div>' ;
           var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url).replace('_mensaje_', currentObject.message);
           $('#publicaciones').prepend(appenReplace);
-          console.log(currentObject.user);
+          // console.log(currentObject.user);
         }
       }
       // console.log(Object.keys(Postarray));
       // console.log(Postarray);
     });
   }
-  // para traer de la base de datos el numero de seguidores
-  var dbRef = firebase.database().ref('usuarios');
-  var dbRefUsu = dbRef.child(localStorage.id);
-  dbRefUsu.on('value', function(snap) {
-    $seguidores.text((snap.val()['seguidores']));
-    // console.log(snap.val());
-  });
   
   $('#fileButton').change(function() {
     var file = event.target.files[0];
@@ -142,7 +139,7 @@ $(document).ready(function() {
     updates['/Posts/' + postKey] = postData;
     firebase.database().ref().update(updates);
     $valueTextTarea = $textArea.val('');
-    $postButton2.attr('disabled', true)
+    $postButton2.attr('disabled', true);
   });
 
 });
