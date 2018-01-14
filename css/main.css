@@ -231,3 +231,8 @@
     font-size: 18px;
     margin-bottom: 10px;
   }
+
+  .flex-spacing{
+    display: flex;
+    justify-content: space-around;
+  }
