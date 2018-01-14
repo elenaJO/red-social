@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#photo-follow').attr('src', localStorage.imgFollow);
+  $('#photo-follow').attr('src', localStorage.photo);
   $('#name-follow').text(localStorage.nameFollow);
   var $seguidores = $('#seguidores-follow');
 
@@ -16,8 +16,48 @@ $(document).ready(function() {
 
   // para traer de la base de datos el numero de seguidores
   var dbRef = firebase.database().ref('usuarios');
-  var dbRefUsu = dbRef.child(localStorage.uidFollow );
+  var dbRefUsu = dbRef.child(localStorage.uidFollow);
   dbRefUsu.on('value', function(snap) {
     $seguidores.text((snap.val()['seguidores']));
   });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var token = firebase.auth().currentUser.uid;
+      queryDataset(token);
+    }
+  });
+
+  function queryDataset(token) {
+    firebase.database().ref('/Posts/').once('value').then(function(snapshot) {
+      var Postarray = snapshot.val();
+      var keys = Object.keys(Postarray);
+      for (var i = 0; i < keys.length; i++) {
+        var currentObject = Postarray[keys[i]];
+        if (currentObject.user === localStorage.uidFollow) {
+          var appen = '<div class="row">' +
+            '<div class="col s12 back-post">' +
+            '<div style="display:inline-block" class="img-user"><img src="_photo_" class="photo-user"></div>' + '<div class="div-name">_name_</div>' + '<br>' +
+            '<div class="align">' +
+            '<img src="_pub_" alt="" class="img-pub">' +
+            '<div class="text-left">' +
+            '<p>_mensaje_</p>' +
+            '<hr>' + '<br>' +
+            '<a class="a-icon"><i class="material-icons">favorite</i></span></a>' + 
+            '<a class="a-icon"><i class="material-icons margin-left">question_answer</i></span></a>' +
+            '<a class="a-icon rigth"><i class="material-icons margin-left">more_horiz</i></span></a>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' ;
+          var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.imgFollow).replace('_name_', localStorage.nameFollow).replace('_texto_', currentObject.url).replace('_mensaje_', currentObject.message);
+          $('#publicaciones').prepend(appenReplace);
+          // console.log(currentObject.user);
+        }
+      }
+      // console.log(Object.keys(Postarray));
+      // console.log(Postarray);
+    });
+  }
+
 });

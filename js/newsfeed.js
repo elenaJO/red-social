@@ -20,6 +20,7 @@ $(document).ready(function() {
 
   }
 
+  // para traer todos lo posteos que hizo
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var token = firebase.auth().currentUser.uid;
@@ -51,14 +52,12 @@ $(document).ready(function() {
             '</div>' ;
           var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url).replace('_mensaje_', currentObject.message);
           $('#publicaciones').prepend(appenReplace);
-          // console.log(currentObject.user);
         }
       }
-      // console.log(Object.keys(Postarray));
-      // console.log(Postarray);
     });
   }
   
+  // para subir fotos y guardarlos en Firebase
   $('#fileButton').change(function() {
     var file = event.target.files[0];
     var storageRef = firebase.storage().ref('/' + localStorage.name + '/' + file.name);
@@ -101,6 +100,7 @@ $(document).ready(function() {
     reader.readAsDataURL(this.files[0]);
   });
 
+  // para validar posteos
   $textArea.on('keyup', function(event) {
     // Si textArea no contiene nada o contiene un vacío el boton se desabilita
     if ($(this).val().length === 0 || $(this).val().length === ' ') {
@@ -111,21 +111,23 @@ $(document).ready(function() {
     }
   });
 
-  
+  // postear  palabras
   $postButton.on('click', function() {
     var appen = '<div class="row">' +
     '<div class="col s12 back-post">' +
     '<div style="display:inline-block" class="img-user"><img src="_photo_" class="photo-user"></div>' + '<div class="div-name">_name_</div>' + '<br>' +
-    '<li><span></span><li>' + '<br>' +
+    '<div class="text-left">' +
+    '<p>_mensaje_</p>' +
     '<hr>' + '<br>' +
     '<a class="a-icon"><i class="material-icons">favorite</i></span></a>' + 
     '<a class="a-icon"><i class="material-icons margin-left">question_answer</i></span></a>' +
     '<a class="a-icon rigth"><i class="material-icons margin-left">more_horiz</i></span></a>' +
     '</div>' +
+    '</div>' +
     '<div></div>' + 
     '<br>';
 
-    var appenReplace = appen.replace('<span></span>', $textArea.val()).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name);
+    var appenReplace = appen.replace('_mensaje_', $textArea.val()).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name);
     $('#publicaciones').prepend(appenReplace);
     var postKey = firebase.database().ref('Posts/').push().key;
     var mensaje = $textArea.val();
