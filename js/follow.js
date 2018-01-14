@@ -64,17 +64,29 @@ $(document).ready(function() {
   // para traer de la base de datos el numero de seguidores
   // var dbRef = firebase.database().ref('usuarios');
   // var dbRefUsu = dbRef.child(localStorage.id);
+ 
   dbRefUsu.on('value', function(snap) {
     $seguidores.text((snap.val()['seguidores']));
     // console.log(snap.val());
   });
+  var dbRefAnt = dbRef.child(localStorage.id);
 
   // aumentar o disminuir seguidores
-  $('#follow-user').click(function() {
+  $('#follow-user').click(function(event) {
+    event.preventDefault();
     $(this).toggleClass('followed');
     var dbUserFollow = dbRefUsu.child('seguidores');
     if ($(this).hasClass('followed')) {
       $(this).text('Followed');
+      var following = $('#name-follow').text();
+      var followingPhoto = localStorage.imgFollow;
+      console.log(followingPhoto);
+      // para guardar los seguidores por id;
+      dbRefAnt.child('following/' + localStorage.uidFollow).set({
+        name: following,
+        foto: followingPhoto
+      });
+     
       dbUserFollow.transaction(function(curentFollow) {
         return curentFollow + 1;
       });

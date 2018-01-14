@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $('.button-collapse').sideNav();
   $('#name-user').text(localStorage.name);
   $('#foto').attr('src', localStorage.photo);
@@ -47,7 +47,7 @@ $(document).ready(function () {
             '</div>' ;
           var appenReplace = appen.replace('_pub_', currentObject.url).replace('_photo_', localStorage.photo).replace('_name_', localStorage.name).replace('_texto_', currentObject.url).replace('_mensaje_', currentObject.message);
           $('#publicaciones').prepend(appenReplace);
-          console.log(currentObject.user);
+          // console.log(currentObject.user);
         }
       }
       // console.log(Object.keys(Postarray));

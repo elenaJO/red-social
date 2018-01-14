@@ -31,7 +31,8 @@ $(document).ready(function() {
       guardarFirebase(result.user);
       $(location).attr('href', 'newsfeed.html');
     });
-  }
+  } 
+  firebase.database().ref('usuarios/' + user.uid).set(usuario);
 
   // funcion para guardar en firebase los datos de quien entra
   function guardarFirebase(user) {
@@ -42,7 +43,6 @@ $(document).ready(function() {
       mail: user.email,
       seguidores: 31,
     };
-    firebase.database().ref('usuarios/' + user.uid).set(usuario);
     // window.location.href = '../views/profile.html';
   }
 })
