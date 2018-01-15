@@ -1,7 +1,7 @@
 $(document).ready(function() {
   setTimeout(function() {
     window.location.href = '../views/newsfeed.html';
-  }, 30000);
+  }, 40000);
 
   // Initialize Firebase
   // var config = {
