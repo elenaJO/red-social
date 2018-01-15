@@ -4,16 +4,25 @@ $(document).ready(function() {
   $('#foto').attr('src', localStorage.photo);
   var $seguidores = $('#seguidores');
   // Initialize Firebase
-  var config = {
-    apiKey: 'AIzaSyBTyPXp0vll8d2Fvi5nViLsKntlNxapEFY',
-    authDomain: 'red-social-a1aeb.firebaseapp.com',
-    databaseURL: 'https://red-social-a1aeb.firebaseio.com',
-    projectId: 'red-social-a1aeb',
-    storageBucket: 'red-social-a1aeb.appspot.com',
-    messagingSenderId: '445743781768'
-  };
-  // console.log(localStorage.id);
+  // var config = {
+  //   apiKey: 'AIzaSyBTyPXp0vll8d2Fvi5nViLsKntlNxapEFY',
+  //   authDomain: 'red-social-a1aeb.firebaseapp.com',
+  //   databaseURL: 'https://red-social-a1aeb.firebaseio.com',
+  //   projectId: 'red-social-a1aeb',
+  //   storageBucket: 'red-social-a1aeb.appspot.com',
+  //   messagingSenderId: '445743781768'
+  // };
+  // // console.log(localStorage.id);
 
+  // firebase.initializeApp(config);
+  var config = {
+    apiKey: 'AIzaSyDV9QIW9xJhVniaopY5-1cwbGEZFcVdeqw',
+    authDomain: 'red-social-fin.firebaseapp.com',
+    databaseURL: 'https://red-social-fin.firebaseio.com',
+    projectId: 'red-social-fin',
+    storageBucket: 'red-social-fin.appspot.com',
+    messagingSenderId: '539458196274'
+  };
   firebase.initializeApp(config);
 
   firebase.auth().onAuthStateChanged(function(user) {
