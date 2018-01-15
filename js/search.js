@@ -21,7 +21,7 @@ $(document).ready(function() {
     messagingSenderId: '539458196274'
   };
   firebase.initializeApp(config);
-  
+
   firebase.database().ref('/usuarios/').once('value').then(function(snapshot) {
     var usuariosArray = snapshot.val();
     var keys = Object.keys(usuariosArray);
@@ -63,7 +63,5 @@ $(document).ready(function() {
     });
   });
 
-  // evento para capturar de quien quiere ver su perfil
-
- 
+  // evento para capturar de quien quiere ver su perfil 
 });

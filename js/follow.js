@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $('#photo-follow').attr('src', localStorage.photo);
   $('#name-follow').text(localStorage.nameFollow);
   var $seguidores = $('#seguidores-follow');
@@ -27,11 +27,11 @@ $(document).ready(function () {
   var dbRef = firebase.database().ref('usuarios');
   var dbRefUsu = dbRef.child(localStorage.uidFollow);
 
-  dbRefUsu.on('value', function (snap) {
+  dbRefUsu.on('value', function(snap) {
     $seguidores.text((snap.val()['seguidores']));
   });
 
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       var token = firebase.auth().currentUser.uid;
       queryDataset(token);
@@ -39,7 +39,7 @@ $(document).ready(function () {
   });
 
   function queryDataset(token) {
-    firebase.database().ref('/Posts/').once('value').then(function (snapshot) {
+    firebase.database().ref('/Posts/').once('value').then(function(snapshot) {
       var Postarray = snapshot.val();
       var keys = Object.keys(Postarray);
       for (var i = 0; i < keys.length; i++) {
@@ -74,14 +74,14 @@ $(document).ready(function () {
   // var dbRef = firebase.database().ref('usuarios');
   // var dbRefUsu = dbRef.child(localStorage.id);
 
-  dbRefUsu.on('value', function (snap) {
+  dbRefUsu.on('value', function(snap) {
     $seguidores.text((snap.val()['seguidores']));
     // console.log(snap.val());
   });
   var dbRefAnt = dbRef.child(localStorage.id);
 
   // aumentar o disminuir seguidores
-  $('#follow-user').click(function (event) {
+  $('#follow-user').click(function(event) {
     event.preventDefault();
     $(this).toggleClass('followed');
     var dbUserFollow = dbRefUsu.child('seguidores');
@@ -96,12 +96,12 @@ $(document).ready(function () {
         foto: followingPhoto
       });
 
-      dbUserFollow.transaction(function (curentFollow) {
+      dbUserFollow.transaction(function(curentFollow) {
         return curentFollow + 1;
       });
     } else {
       $(this).text('Follow');
-      dbUserFollow.transaction(function (curentFollow) {
+      dbUserFollow.transaction(function(curentFollow) {
         return curentFollow - 1;
       });
     }

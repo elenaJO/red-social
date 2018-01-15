@@ -51,17 +51,16 @@ $(document).ready(function() {
           }
         }
         if (j) {
-          console.log('sisi');
+          // console.log('sisi');
           guardarFirebase(result.user);
         } else {
-          console.log('mo');
+          // console.log('mo');
         }
-        console.log(j);
+        // console.log(j);
       });
       // console.log(j);
       // guardarFirebase(result.user);
       // $(location).attr('href', 'newsfeed.html');
-     
     });
     // if (j) {
     //   guardarFirebase(result.user);
